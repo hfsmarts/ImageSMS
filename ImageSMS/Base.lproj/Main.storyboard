@@ -1,24 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageSMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recepiant phone number:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhS-Wc-YLu">
+                                <rect key="frame" x="74.333333333333329" y="114.66666666666667" width="244.66666666666669" height="26.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+38761222111" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OlB-aV-WeC">
+                                <rect key="frame" x="59" y="153.33333333333334" width="275" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eho-Mf-Xkh">
+                                <rect key="frame" x="143.33333333333334" y="242.33333333333334" width="106.33333333333334" height="26.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mujo Mujic" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ztz-WW-MqR">
+                                <rect key="frame" x="59" y="281.33333333333331" width="275" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTd-b4-eLD">
+                                <rect key="frame" x="150.66666666666666" y="370.33333333333331" width="92" height="26.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wish you all the best!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r0o-Jx-Zbb">
+                                <rect key="frame" x="59" y="409" width="275" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your image:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqf-Q3-qNG">
+                                <rect key="frame" x="102" y="497.66666666666669" width="189" height="27.000000000000057"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23b-lk-P77">
+                                <rect key="frame" x="156" y="536.33333333333337" width="81" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Browse"/>
+                                <connections>
+                                    <action selector="browseForTheImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XdN-dP-k9I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjQ-rW-LJL">
+                                <rect key="frame" x="94" y="749.33333333333337" width="205" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Send Postcard via SMS "/>
+                                <connections>
+                                    <action selector="sendMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZgC-Pm-mp9"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ira-Jx-Ztv">
+                                <rect key="frame" x="76.666666666666686" y="575" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="r0o-Jx-Zbb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0Mc-v1-6UY"/>
+                            <constraint firstItem="GjQ-rW-LJL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.8" id="0aH-YN-yHN"/>
+                            <constraint firstItem="Ira-Jx-Ztv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.610687" id="107-Xw-f8k"/>
+                            <constraint firstItem="RTd-b4-eLD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="7XQ-zb-qXy"/>
+                            <constraint firstItem="OlB-aV-WeC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.4" id="9Ck-6T-DRl"/>
+                            <constraint firstItem="Ira-Jx-Ztv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="C6l-c3-dQS"/>
+                            <constraint firstItem="eho-Mf-Xkh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.6" id="CRn-XQ-mHF"/>
+                            <constraint firstItem="Ira-Jx-Ztv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F7t-b4-yyz"/>
+                            <constraint firstItem="23b-lk-P77" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GJl-Xl-peG"/>
+                            <constraint firstItem="GjQ-rW-LJL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O0t-t1-gHf"/>
+                            <constraint firstItem="r0o-Jx-Zbb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OgZ-8e-XHK"/>
+                            <constraint firstItem="RTd-b4-eLD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P3x-UA-02D"/>
+                            <constraint firstItem="eho-Mf-Xkh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PcK-dI-2OD"/>
+                            <constraint firstItem="ztz-WW-MqR" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="Pxe-vU-CuA"/>
+                            <constraint firstItem="Ira-Jx-Ztv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.150235" id="XJS-B9-QVr"/>
+                            <constraint firstItem="ztz-WW-MqR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.7" id="cHB-x3-LAP"/>
+                            <constraint firstItem="wqf-Q3-qNG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.2" id="dFI-ie-7CY"/>
+                            <constraint firstItem="ztz-WW-MqR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dWY-Gf-HfW"/>
+                            <constraint firstItem="OlB-aV-WeC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="eMl-VQ-uat"/>
+                            <constraint firstItem="OlB-aV-WeC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hx1-JL-Atq"/>
+                            <constraint firstItem="r0o-Jx-Zbb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="qrx-0T-Tt9"/>
+                            <constraint firstItem="wqf-Q3-qNG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tMy-KG-ElF"/>
+                            <constraint firstItem="23b-lk-P77" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.3" id="wlx-AZ-OWN"/>
+                            <constraint firstItem="GhS-Wc-YLu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="woU-EV-rp3"/>
+                            <constraint firstItem="GhS-Wc-YLu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.3" id="xoh-hn-dAX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageInMessage" destination="Ira-Jx-Ztv" id="4wg-bl-FAi"/>
+                        <outlet property="message" destination="r0o-Jx-Zbb" id="pxK-P4-rpN"/>
+                        <outlet property="messagePlaceholder" destination="r0o-Jx-Zbb" id="mzI-ru-Jnr"/>
+                        <outlet property="namePlaceholder" destination="ztz-WW-MqR" id="7bW-0Z-VVQ"/>
+                        <outlet property="numberPlaceHolder" destination="OlB-aV-WeC" id="dro-or-RBm"/>
+                        <outlet property="phoneNumber" destination="OlB-aV-WeC" id="Bzw-cR-3qG"/>
+                        <outlet property="senderName" destination="ztz-WW-MqR" id="fKF-xr-I8g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultImage" width="1262" height="1276"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
