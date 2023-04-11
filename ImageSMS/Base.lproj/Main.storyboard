@@ -17,18 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recepiant phone number:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhS-Wc-YLu">
-                                <rect key="frame" x="74.333333333333329" y="114.66666666666667" width="244.66666666666669" height="26.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipient phone number:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhS-Wc-YLu">
+                                <rect key="frame" x="77.666666666666686" y="114.66666666666667" width="238" height="26.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+38761222111" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OlB-aV-WeC">
+                            <textField opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="38761222111" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OlB-aV-WeC">
                                 <rect key="frame" x="59" y="153.33333333333334" width="275" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="textFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="LoJ-gP-SMq"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eho-Mf-Xkh">
                                 <rect key="frame" x="143.33333333333334" y="242.33333333333334" width="106.33333333333334" height="26.333333333333343"/>
@@ -42,6 +45,9 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="bW6-Yw-zBu"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTd-b4-eLD">
                                 <rect key="frame" x="150.66666666666666" y="370.33333333333331" width="92" height="26.333333333333314"/>
@@ -55,6 +61,9 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="rGb-WC-5wE"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your image:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqf-Q3-qNG">
                                 <rect key="frame" x="102" y="497.66666666666669" width="189" height="27.000000000000057"/>
@@ -119,6 +128,7 @@
                         <outlet property="namePlaceholder" destination="ztz-WW-MqR" id="7bW-0Z-VVQ"/>
                         <outlet property="numberPlaceHolder" destination="OlB-aV-WeC" id="dro-or-RBm"/>
                         <outlet property="phoneNumber" destination="OlB-aV-WeC" id="Bzw-cR-3qG"/>
+                        <outlet property="sendButton" destination="GjQ-rW-LJL" id="tZ6-j1-Gby"/>
                         <outlet property="senderName" destination="ztz-WW-MqR" id="fKF-xr-I8g"/>
                     </connections>
                 </viewController>
