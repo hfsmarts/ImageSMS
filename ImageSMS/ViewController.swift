@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             return
         }
         let headers: HTTPHeaders = [
-            "Authorization": "Client-ID 475391343c45076"
+            "Authorization": "Client-ID *********************" /*Client ID goes here*/
         ]
 
         AF.upload(multipartFormData: { multipartFormData in
@@ -86,8 +86,8 @@ class ViewController: UIViewController {
         
       
         
-        //        let accountSid = "ACd6060459ce0937f6d3a0018b0046f79b"
-        //        let authToken = "23374c1059709a20f990a56cbb7262f2"
+        //        let accountSid = "****************"
+        //        let authToken = "*****************"
         //        let urlString = "https://api.twilio.com/2010-04-01/Accounts/\(accountSid)/Messages.json"
         //        let body = "Message from: \(namePlaceholder.text!). Message text: \(messagePlaceholder.text!) "
         //        let from = "+15673991807"
