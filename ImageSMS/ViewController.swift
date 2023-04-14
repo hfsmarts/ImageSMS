@@ -22,19 +22,12 @@ class ViewController: UIViewController {
     var resultLink: String?
     var uploadedImageURL: String?
     
-    
-    
     func uploadImageToImgur(image: UIImage, completion: @escaping (Result<String, Error>) -> Void, imageURLCompletion: @escaping (String?) -> Void)  {
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
             completion(.failure(NSError(domain: "com.yourapp.upload", code: 400, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to JPEG data"])))
             imageURLCompletion(nil)
             return
         }
-        
-        
-     
-
-
         
         
         let headers: HTTPHeaders = [
@@ -85,9 +78,8 @@ class ViewController: UIViewController {
     
     @IBAction func sendMessage(_ sender: UIButton) {
         
-        
-        let accountSid = "ACd6060459ce0937f6d3a0018b0046f79b"
-        let authToken = "95f33889bf99021ea1c5a62afc39a333"
+        let accountSid = UtilityFunctions().keyGenerator(key: "accountSid")
+        let authToken = UtilityFunctions().keyGenerator(key: "authToken")
         let urlString = "https://api.twilio.com/2010-04-01/Accounts/\(accountSid)/Messages.json"
         let body = "Message from: \(namePlaceholder.text!). Message text: \(messagePlaceholder.text!) "
         let from = "+15673991807"
