@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		104DBE589800E3DD60BDEA39 /* Pods_ImageSMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70B8D618034C17E6DB98A80 /* Pods_ImageSMS.framework */; };
+		592A543829E9A0BE00FE3022 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 592A543729E9A0BE00FE3022 /* Keys.plist */; };
 		596F501C29E45D0E00B0FC74 /* ImgurUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596F501B29E45D0E00B0FC74 /* ImgurUploadResponse.swift */; };
 		596F501E29E45D8100B0FC74 /* ImgurUploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596F501D29E45D8100B0FC74 /* ImgurUploadData.swift */; };
 		59B5953629E178410020B583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5953529E178410020B583 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		36090A4BEEADA636EA561F0B /* Pods-ImageSMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageSMS/Pods-ImageSMS.debug.xcconfig"; sourceTree = "<group>"; };
+		592A543729E9A0BE00FE3022 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		596F501B29E45D0E00B0FC74 /* ImgurUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgurUploadResponse.swift; sourceTree = "<group>"; };
 		596F501D29E45D8100B0FC74 /* ImgurUploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgurUploadData.swift; sourceTree = "<group>"; };
 		59B5953229E178410020B583 /* ImageSMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 				59B5953E29E178420020B583 /* Assets.xcassets */,
 				59B5954029E178420020B583 /* LaunchScreen.storyboard */,
 				59B5954329E178420020B583 /* Info.plist */,
+				592A543729E9A0BE00FE3022 /* Keys.plist */,
 			);
 			path = ImageSMS;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				592A543829E9A0BE00FE3022 /* Keys.plist in Resources */,
 				59B5954229E178420020B583 /* LaunchScreen.storyboard in Resources */,
 				59B5953F29E178420020B583 /* Assets.xcassets in Resources */,
 				59B5953D29E178410020B583 /* Main.storyboard in Resources */,
