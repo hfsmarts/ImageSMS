@@ -1,0 +1,22 @@
+# Xcode build files
+DerivedData/
+*.pbxuser
+*.mode1v3
+*.xcworkspace
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# Swift Package Manager artifacts
+.build/
+
+# Swift Package Manager generated files
+Package.resolved
+
+# IDE files
+*.DS_Store
+*.idea/
+*.vscode/
+
+# Keys file
+Keys.plist
