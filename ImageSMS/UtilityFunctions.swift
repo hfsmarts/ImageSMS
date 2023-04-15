@@ -34,7 +34,7 @@ struct UtilityFunctions{
     }
     
     func keyGenerator(key: String) -> String{
-        guard let path = Bundle.main.path(forResource: "Keys", ofType: "plist"),
+        guard let path = Bundle.main.path(forResource: "Lock", ofType: "plist"),
               let xml = FileManager.default.contents(atPath: path),
               let keys = try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil) as? [String: Any],
               let ClientID = keys[key] as? String else {

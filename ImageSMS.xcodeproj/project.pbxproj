@@ -18,6 +18,7 @@
 		59B5954229E178420020B583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59B5954029E178420020B583 /* LaunchScreen.storyboard */; };
 		59B5954A29E180970020B583 /* Extenssions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5954929E180970020B583 /* Extenssions.swift */; };
 		59B5954C29E1924A0020B583 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5954B29E1924A0020B583 /* UtilityFunctions.swift */; };
+		59CCE26729EABC1D00084745 /* Lock.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59CCE26629EABC1D00084745 /* Lock.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		59B5954329E178420020B583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59B5954929E180970020B583 /* Extenssions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenssions.swift; sourceTree = "<group>"; };
 		59B5954B29E1924A0020B583 /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
+		59CCE26629EABC1D00084745 /* Lock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Lock.plist; sourceTree = "<group>"; };
 		70C1C564BC221E4D4B3B4FE4 /* Pods-ImageSMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageSMS/Pods-ImageSMS.release.xcconfig"; sourceTree = "<group>"; };
 		D70B8D618034C17E6DB98A80 /* Pods_ImageSMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 				59B5953E29E178420020B583 /* Assets.xcassets */,
 				59B5954029E178420020B583 /* LaunchScreen.storyboard */,
 				59B5954329E178420020B583 /* Info.plist */,
+				59CCE26629EABC1D00084745 /* Lock.plist */,
 			);
 			path = ImageSMS;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59B5954229E178420020B583 /* LaunchScreen.storyboard in Resources */,
+				59CCE26729EABC1D00084745 /* Lock.plist in Resources */,
 				59B5953F29E178420020B583 /* Assets.xcassets in Resources */,
 				59B5953D29E178410020B583 /* Main.storyboard in Resources */,
 			);

@@ -19,4 +19,4 @@ Package.resolved
 *.vscode/
 
 # Keys file
-Keys.plist
+Lock.plist
