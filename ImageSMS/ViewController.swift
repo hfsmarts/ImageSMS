@@ -120,37 +120,6 @@ class ViewController: UIViewController {
 }
 
 
-
-//extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
-//            imageInMessage.image = image
-//
-//            uploadImageToImgur(image: image) { result in
-//                switch result {
-//                case .success(let imageURL):
-//                    print("Image uploaded successfully: \(imageURL)")
-//
-//                case .failure(let error):
-//                    print("Failed to upload image: \(error.localizedDescription)")
-//                }
-//            }imageURLCompletion: { [self] imageURL in
-//                if let imageURL = imageURL {
-//                  resultLink = imageURL
-//                }
-//            }
-//        }
-//
-//        picker.dismiss(animated: true)
-//    }
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        picker.dismiss(animated: true)
-//    }
-//
-//}
-
-
-
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
