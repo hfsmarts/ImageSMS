@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var phoneNumber: UITextField!
     @IBOutlet var senderName: UITextField!
@@ -91,36 +91,33 @@ class ViewController: UIViewController {
             "To": to,
             "MediaUrl": mediaLink
         ]
-        
+
         AF.request(urlString, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: HTTPHeaders(["Authorization": "Basic \(Data("\(accountSid):\(authToken)".utf8).base64EncodedString())"])).response { response in
             if let error = response.error {
                 UtilityFunctions().errorAlert(vc: self)
                 print("Error: \(error.localizedDescription)")
                 return
             }
-            
+
             guard let statusCode = response.response?.statusCode,
                   (200...299).contains(statusCode) else {
                 UtilityFunctions().errorAlert(vc: self)
                 print("Error: Invalid response")
                 return
             }
-            
+
             guard let data = response.data else {
                 UtilityFunctions().errorAlert(vc: self)
                 print("Error: No data received")
                 return
             }
-            
+
             UtilityFunctions().success(vc: self)
             print(String(data: data, encoding: .utf8)!)
         }
         
     }
-}
-
-
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
@@ -147,4 +144,12 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }
     }
     
+    
+    
+    
 }
+
+
+    
+
+
