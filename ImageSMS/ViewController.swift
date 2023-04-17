@@ -64,7 +64,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func textFieldEditingChanged(_ sender: Any) {
-        sendButton.isEnabled = !numberPlaceHolder.text!.isEmpty && !namePlaceholder.text!.isEmpty && !messagePlaceholder.text!.isEmpty
+        sendButton.isEnabled = !numberPlaceHolder.text!.isEmpty && !namePlaceholder.text!.isEmpty && !messagePlaceholder.text!.isEmpty && (uploadedImageURL == nil) != nil
     }
     
     @IBAction func browseForTheImage(_ sender: UIButton) {
@@ -78,45 +78,47 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func sendMessage(_ sender: UIButton) {
         
-        let accountSid = UtilityFunctions().keyGenerator(key: "accountSid")
-        let authToken = UtilityFunctions().keyGenerator(key: "authToken")
-        let urlString = "https://api.twilio.com/2010-04-01/Accounts/\(accountSid)/Messages.json"
-        let body = "Message from: \(namePlaceholder.text!). Message text: \(messagePlaceholder.text!) "
-        let from = "+15673991807"
-        let to = "+\(numberPlaceHolder.text!)"
-        let mediaLink = "https://img.freepik.com/free-photo/closeup-plant_181624-3826.jpg?w=2000&t=st=1681483561~exp=1681484161~hmac=5611f937c8bc4ac6b066ea35820823a8cd46aa226de088482cb41ead4edf6b61"
-        let parameters: [String: Any] = [
-            "Body": body,
-            "From": from,
-            "To": to,
-            "MediaUrl": mediaLink
-        ]
+        //& uploaded image != nil
+                    
+            let accountSid = UtilityFunctions().keyGenerator(key: "accountSid")
+            let authToken = UtilityFunctions().keyGenerator(key: "authToken")
+            let urlString = "https://api.twilio.com/2010-04-01/Accounts/\(accountSid)/Messages.json"
+            let body = "Message from: \(namePlaceholder.text!). Message text: \(messagePlaceholder.text!) "
+            let from = "+15673991807"
+            let to = "+\(numberPlaceHolder.text!)"
+            let parameters: [String: Any] = [
+                "Body": body,
+                "From": from,
+                "To": to,
+                "MediaUrl": uploadedImageURL!
+            ]
 
-        AF.request(urlString, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: HTTPHeaders(["Authorization": "Basic \(Data("\(accountSid):\(authToken)".utf8).base64EncodedString())"])).response { response in
-            if let error = response.error {
-                UtilityFunctions().errorAlert(vc: self)
-                print("Error: \(error.localizedDescription)")
-                return
+
+            AF.request(urlString, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: HTTPHeaders(["Authorization": "Basic \(Data("\(accountSid):\(authToken)".utf8).base64EncodedString())"])).response { response in
+                if let error = response.error {
+                    UtilityFunctions().errorAlert(vc: self)
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+
+                guard let statusCode = response.response?.statusCode,
+                      (200...299).contains(statusCode) else {
+                    UtilityFunctions().errorAlert(vc: self)
+                    print("Error: Invalid response")
+                    return
+                }
+
+                guard let data = response.data else {
+                    UtilityFunctions().errorAlert(vc: self)
+                    print("Error: No data received")
+                    return
+                }
+
+                UtilityFunctions().success(vc: self)
+                print(String(data: data, encoding: .utf8)!)
             }
-
-            guard let statusCode = response.response?.statusCode,
-                  (200...299).contains(statusCode) else {
-                UtilityFunctions().errorAlert(vc: self)
-                print("Error: Invalid response")
-                return
-            }
-
-            guard let data = response.data else {
-                UtilityFunctions().errorAlert(vc: self)
-                print("Error: No data received")
-                return
-            }
-
-            UtilityFunctions().success(vc: self)
-            print(String(data: data, encoding: .utf8)!)
         }
-        
-    }
+    
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
