@@ -19,13 +19,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var messagePlaceholder: UITextField!
     @IBOutlet var sendButton: UIButton!
     
-    var resultLink: String?
     var uploadedImageURL: String?
     
-    func uploadImageToImgur(image: UIImage, completion: @escaping (Result<String, Error>) -> Void, imageURLCompletion: @escaping (String?) -> Void)  {
+    func uploadImageToImgur(image: UIImage, completion: @escaping (Result<String, Error>) -> Void)  {
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
             completion(.failure(NSError(domain: "com.yourapp.upload", code: 400, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to JPEG data"])))
-            imageURLCompletion(nil)
             return
         }
         
@@ -43,8 +41,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             case .success(let uploadResponse):
                 completion(.success(uploadResponse.data.link))
                 
-                let imageURL = "https://example.com/image.jpg"
-                imageURLCompletion(imageURL)
+               
                 
             case .failure(let error):
                 completion(.failure(error))
@@ -64,7 +61,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func textFieldEditingChanged(_ sender: Any) {
-        sendButton.isEnabled = !numberPlaceHolder.text!.isEmpty && !namePlaceholder.text!.isEmpty && !messagePlaceholder.text!.isEmpty && (uploadedImageURL == nil) != nil
+        sendButton.isEnabled = !numberPlaceHolder.text!.isEmpty && !namePlaceholder.text!.isEmpty && !messagePlaceholder.text!.isEmpty
     }
     
     @IBAction func browseForTheImage(_ sender: UIButton) {
@@ -133,11 +130,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 case .failure(let error):
                     print("Failed to upload image: \(error.localizedDescription)")
                 }
-            }imageURLCompletion: { [self] imageURL in
-                if let imageURL = imageURL {
-                    resultLink = imageURL
-                }
             }
+            
             picker.dismiss(animated: true)
         }
         
