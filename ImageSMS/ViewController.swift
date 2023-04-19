@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let vc = UIImagePickerController()
         vc.sourceType = .photoLibrary
         vc.delegate = self
-        vc.allowsEditing = true
+        vc.allowsEditing = false
         present(vc, animated: true)
     }
     
@@ -102,7 +102,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+        //if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage { /*if vc.allowsEditing = true*/ 
+        if let image = info[.originalImage] as? UIImage {
             imageInMessage.image = image
             uploadImageToImgur(image: image) { result in
                 switch result {
@@ -118,11 +119,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             picker.dismiss(animated: true)
         }
-        
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            picker.dismiss(animated: true)
-        }
     }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+
     
 }
 
