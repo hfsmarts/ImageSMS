@@ -27,6 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "Mujo Mujic", placeHolder: namePlaceholder)
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "Wish you all the best!", placeHolder: messagePlaceholder)
         sendButton.isEnabled = false
+        limitLength(senderName, limitNum: 2)
     }
     
     func uploadImageToImgur(image: UIImage, completion: @escaping (Result<String, Error>) -> Void)  {
@@ -79,30 +80,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         AF.request(urlString, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: HTTPHeaders(["Authorization": "Basic \(Data("\(accountSid):\(authToken)".utf8).base64EncodedString())"])).response { response in
             if let error = response.error {
                 UtilityFunctions().errorAlert(vc: self)
-                print("Error: \(error.localizedDescription)")
+                //print("Error: \(error.localizedDescription)")
                 return
             }
             
             guard let statusCode = response.response?.statusCode,
                   (200...299).contains(statusCode) else {
                 UtilityFunctions().errorAlert(vc: self)
-                print("Error: Invalid response")
+                //print("Error: Invalid response")
                 return
             }
             
             guard let data = response.data else {
                 UtilityFunctions().errorAlert(vc: self)
-                print("Error: No data received")
+                //print("Error: No data received")
                 return
             }
             
             UtilityFunctions().success(vc: self)
-            print(String(data: data, encoding: .utf8)!)
+            //print(String(data: data, encoding: .utf8)!)
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        //if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage { /*if vc.allowsEditing = true*/ 
+        //if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage { /*if vc.allowsEditing = true*/
         if let image = info[.originalImage] as? UIImage {
             imageInMessage.image = image
             uploadImageToImgur(image: image) { result in
@@ -120,11 +121,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             picker.dismiss(animated: true)
         }
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
     }
-
+    
+    
+    func limitTextField(_ textField: UITextField, limitNum: Int) {
+        textField.addTarget(self, action: #selector(limitLength), for: .editingChanged)
+    }
+    
+    @objc func limitLength(_ textField: UITextField, limitNum: Int) {
+        guard let text = textField.text else { return }
+        if text.count > limitNum {
+            let endIndex = text.index(text.startIndex, offsetBy: limitNum)
+            textField.text = String(text[..<endIndex])
+        }
+    }
+    
+    
     
 }
 
