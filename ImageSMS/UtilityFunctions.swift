@@ -42,12 +42,7 @@ struct UtilityFunctions{
         }
         return ClientID
     }
-    
-//    func enableButton(numberPlaceHolderText: String?, namePlaceHolderText: String?, messagePlaceHolderText: String?, isImageUploaded: Bool, button: UIButton) -> Bool{
-//        if numberPlaceHolderText != "" && namePlaceHolderText != "" && messagePlaceHolderText != "" && isImageUploaded{
-//            return button.isEnabled == true
-//        }
-//        return button.isEnabled == false
-//    }
-    
 }
+
+
+

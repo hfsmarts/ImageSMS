@@ -29,6 +29,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "John Wick", placeHolder: namePlaceholder)
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "Wish you all the best!", placeHolder: messagePlaceholder)
         sendButton.isEnabled = false
+        namePlaceholder.limitNumOfChar(20)
+        messagePlaceholder.limitNumOfChar(160)
     }
     
     func uploadImageToImgur(image: UIImage, completion: @escaping (Result<String, Error>) -> Void)  {
@@ -113,6 +115,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             UtilityFunctions().success(vc: self)
         }
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             self.sendButton.isEnabled = false
