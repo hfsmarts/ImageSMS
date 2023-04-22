@@ -113,16 +113,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             UtilityFunctions().success(vc: self)
         }
     }
-
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
+            self.sendButton.isEnabled = false
             uploadImageToImgur(image: image) { [self] result in
                 switch result {
                 case .success(let imageURL):
                     self.uploadedImageURL = imageURL
                     self.isImageUploaded = true
                     if isTextPresent && isImageUploaded {
-                        sendButton.isEnabled = true
+                        self.sendButton.isEnabled = true
                     }
                 case .failure(_):
                     UtilityFunctions().errorAlert(vc: self)
@@ -133,11 +133,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         picker.dismiss(animated: true)
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
     }
-    
+
     
 }
 
