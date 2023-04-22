@@ -19,15 +19,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var messagePlaceholder: UITextField!
     @IBOutlet var sendButton: UIButton!
     var uploadedImageURL: String? = nil
+    var isImageUploaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "38761222111", placeHolder: numberPlaceHolder)
-        UtilityFunctions().setPlaceHolderColor(placeHolderText: "Mujo Mujic", placeHolder: namePlaceholder)
+        UtilityFunctions().setPlaceHolderColor(placeHolderText: "John Wick", placeHolder: namePlaceholder)
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "Wish you all the best!", placeHolder: messagePlaceholder)
         sendButton.isEnabled = false
-        limitLength(senderName, limitNum: 2)
+        
+   
+
     }
     
     func uploadImageToImgur(image: UIImage, completion: @escaping (Result<String, Error>) -> Void)  {
@@ -78,43 +81,43 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         ]
         
         AF.request(urlString, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: HTTPHeaders(["Authorization": "Basic \(Data("\(accountSid):\(authToken)".utf8).base64EncodedString())"])).response { response in
-            if let error = response.error {
+            if response.error != nil {
                 UtilityFunctions().errorAlert(vc: self)
-                //print("Error: \(error.localizedDescription)")
                 return
             }
             
             guard let statusCode = response.response?.statusCode,
                   (200...299).contains(statusCode) else {
                 UtilityFunctions().errorAlert(vc: self)
-                //print("Error: Invalid response")
                 return
             }
             
-            guard let data = response.data else {
+            guard response.data != nil else {
                 UtilityFunctions().errorAlert(vc: self)
-                //print("Error: No data received")
                 return
             }
             
             UtilityFunctions().success(vc: self)
-            //print(String(data: data, encoding: .utf8)!)
+            
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        //if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage { /*if vc.allowsEditing = true*/
         if let image = info[.originalImage] as? UIImage {
             imageInMessage.image = image
-            uploadImageToImgur(image: image) { result in
+            uploadImageToImgur(image: image) { [self] result in
                 switch result {
                 case .success(let imageURL):
                     self.uploadedImageURL = imageURL
-                    if self.numberPlaceHolder.text! != "" && self.namePlaceholder.text! != "" && self.messagePlaceholder.text! != "" {
-                        self.sendButton.isEnabled = true
+                    self.isImageUploaded = true
+                    
+                    
+                    if numberPlaceHolder.text! != "" && namePlaceholder.text! != "" && messagePlaceholder.text! != "" && isImageUploaded {
+                        sendButton.isEnabled = true
                     }
-                case .failure(let error):
-                    print("Failed to upload image: \(error.localizedDescription)")
+
+                case .failure(_):
+                    UtilityFunctions().errorAlert(vc: self)
                     self.sendButton.isEnabled = false
                 }
             }
@@ -125,20 +128,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
     }
-    
-    
-    func limitTextField(_ textField: UITextField, limitNum: Int) {
-        textField.addTarget(self, action: #selector(limitLength), for: .editingChanged)
-    }
-    
-    @objc func limitLength(_ textField: UITextField, limitNum: Int) {
-        guard let text = textField.text else { return }
-        if text.count > limitNum {
-            let endIndex = text.index(text.startIndex, offsetBy: limitNum)
-            textField.text = String(text[..<endIndex])
-        }
-    }
-    
     
     
 }

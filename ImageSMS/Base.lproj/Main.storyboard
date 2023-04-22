@@ -78,8 +78,8 @@
                                     <action selector="sendMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZgC-Pm-mp9"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ira-Jx-Ztv">
-                                <rect key="frame" x="76.666666666666686" y="575" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ira-Jx-Ztv">
+                                <rect key="frame" x="76.666666666666686" y="574" width="240" height="128.66666666666674"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -129,7 +129,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultImage" width="1262" height="1276"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
