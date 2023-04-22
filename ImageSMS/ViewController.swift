@@ -29,7 +29,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "John Wick", placeHolder: namePlaceholder)
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "Wish you all the best!", placeHolder: messagePlaceholder)
         sendButton.isEnabled = false
-
     }
     
     func uploadImageToImgur(image: UIImage, completion: @escaping (Result<String, Error>) -> Void)  {
@@ -114,10 +113,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             UtilityFunctions().success(vc: self)
         }
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
-            imageInMessage.image = image
             uploadImageToImgur(image: image) { [self] result in
                 switch result {
                 case .success(let imageURL):
@@ -131,8 +129,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.sendButton.isEnabled = false
                 }
             }
-            picker.dismiss(animated: true)
+            imageInMessage.image = image
         }
+        picker.dismiss(animated: true)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -143,7 +142,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 }
 
 
-//once image is uploaded, we need to reupload it if another is choosen or implement clean button
 
 
 
