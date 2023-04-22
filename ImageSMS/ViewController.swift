@@ -20,6 +20,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var sendButton: UIButton!
     var uploadedImageURL: String? = nil
     var isImageUploaded = false
+    var isTextPresent = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "John Wick", placeHolder: namePlaceholder)
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "Wish you all the best!", placeHolder: messagePlaceholder)
         sendButton.isEnabled = false
-        
-   
 
     }
     
@@ -54,6 +53,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
+        if let phoneNumber = phoneNumber.text,
+           let namePlaceholder = namePlaceholder.text,
+           let messagePlaceholder = messagePlaceholder.text,
+           !phoneNumber.isEmpty,
+           !namePlaceholder.isEmpty,
+           !messagePlaceholder.isEmpty{
+            isTextPresent = true
+        } else {
+            isTextPresent = false
+        }
+        if isTextPresent && isImageUploaded {
+            sendButton.isEnabled = true
         }
     }
     
@@ -96,9 +111,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 UtilityFunctions().errorAlert(vc: self)
                 return
             }
-            
             UtilityFunctions().success(vc: self)
-            
         }
     }
     
@@ -110,12 +123,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 case .success(let imageURL):
                     self.uploadedImageURL = imageURL
                     self.isImageUploaded = true
-                    
-                    
-                    if numberPlaceHolder.text! != "" && namePlaceholder.text! != "" && messagePlaceholder.text! != "" && isImageUploaded {
+                    if isTextPresent && isImageUploaded {
                         sendButton.isEnabled = true
                     }
-
                 case .failure(_):
                     UtilityFunctions().errorAlert(vc: self)
                     self.sendButton.isEnabled = false
@@ -131,6 +141,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
 }
+
+
+//once image is uploaded, we need to reupload it if another is choosen or implement clean button
 
 
 
