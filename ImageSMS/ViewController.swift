@@ -24,6 +24,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+             overrideUserInterfaceStyle = .light
+          }
         self.hideKeyboardWhenTappedAround()
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "38761222111", placeHolder: numberPlaceHolder)
         UtilityFunctions().setPlaceHolderColor(placeHolderText: "John Wick", placeHolder: namePlaceholder)
