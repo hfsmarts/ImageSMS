@@ -8,7 +8,7 @@ Once recipient phone number is present and message is present, user needs to cho
 </p>
 
 <div align="center">
-<img src="images/view1.png" height="800">
-<img src="images/view2.png" height="800">
+<img src="images/image1.png" height="800">
+<img src="images/image2.png" height="800">
 </div>
 
